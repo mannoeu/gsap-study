@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+}
+.hero-title {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 48px;
+}
+.wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+}
+.navbar {
+  position: fixed;
+  width: 6%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: #191919;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-toggle {
+  cursor: pointer;
+}
+.nav-toggle span {
+  display: block;
+  height: 1px;
+  background: #fff;
+  transition: transform 0.5s cubic-bezier(0.3, 1, 0.4, 0.8);
+}
+.nav-toggle span:nth-child(1) {
+  width: 40px;
+}
+.nav-toggle span:nth-child(2) {
+  width: 30px;
+}
+.nav-toggle span:nth-child(3) {
+  width: 20px;
+}
+.nav-toggle span:not(:first-child) {
+  margin-top: 8px;
+}
+
+.nav-toggle.active span:nth-child(1) {
+  width: 40px;
+  transform: rotate(-44deg) translateX(-12px);
+}
+.nav-toggle.active span:nth-child(2) {
+  transform: translateX(-20px);
+  width: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+  width: 40px;
+  transform: rotate(44deg) translateX(-12px);
+}
+
+.nav {
+  position: fixed;
+  width: 0%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  left: 6%;
+  background: #191919;
+}
+
+.nav-items {
+  margin: 60px;
+  overflow-y: auto;
+}
+
+.nav-items::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-item {
+  position: relative;
+  font-size: 120px;
+}
+.nav-item a {
+  position: relative;
+  top: 140px;
+  text-decoration: none;
+  color: #3731d1;
+  text-transform: uppercase;
+  font-family: Roboto, sans-serif;
+  letter-spacing: -8px;
+  transition: 1s;
+}
+
+.nav-item-wrapper:after {
+  content: "";
+  position: absolute;
+  top: 140px;
+  left: 0;
+  width: 110%;
+  height: 100%;
+  background: #191919;
+  margin: 0 auto;
+  transition: 1s;
+}
+.nav-item:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2.8px;
+  background: #fff;
+  transition: 0.3s;
+}
+.nav-item:hover:after {
+  width: 100%;
+}
+
+@media (max-width: 990px) {
+  body {
+    overflow: hidden;
+  }
+  .navbar {
+    width: 16%;
+  }
+  .nav {
+    left: 16%;
+  }
+  .nav-item a {
+    font-size: 40px;
+    letter-spacing: 0;
+  }
+  .nav-item:after {
+    display: none;
+  }
+}
